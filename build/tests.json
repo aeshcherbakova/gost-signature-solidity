@@ -1,0 +1,20 @@
+{
+  "contracts": {
+    "Hash512": "89c3c40a32f3a42f48766927e31101a2f6799da7",
+    "Montgomery": "396a4f5dfc2097a204ece57c30f45ff26bd3e9a4",
+    "Signature": "81dc97dbc7d1fac04a462b3c71bb22a89416ebf3",
+    "Uint512": "2fc2738a2fc79176371f4cd95d7740a13af87941"
+  },
+  "tests": {
+    "tests/test_hash.py": {
+      "coverage": false,
+      "isolated": [
+        "Hash512"
+      ],
+      "results": ".",
+      "sha1": "2a10fda05923175e32eb3c5a31fc8ffede337cba",
+      "txhash": []
+    }
+  },
+  "tx": {}
+}

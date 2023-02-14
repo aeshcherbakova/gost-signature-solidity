@@ -1,0 +1,7171 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_message",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nonce",
+          "type": "uint256"
+        }
+      ],
+      "name": "getMessageHash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "_prefixed",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "recoverSigner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "sig",
+          "type": "bytes"
+        }
+      ],
+      "name": "splitSignature",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "r",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "s",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint8",
+          "name": "v",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_signer",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_message",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nonce",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "verify",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "2": "contracts/Signature.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/Signature.sol",
+    "exportedSymbols": {
+      "Signature": [
+        219
+      ]
+    },
+    "id": 220,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 89,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".17"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:2"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Signature",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 219,
+        "linearizedBaseContracts": [
+          219
+        ],
+        "name": "Signature",
+        "nameLocation": "376:9:2",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 112,
+              "nodeType": "Block",
+              "src": "865:83:2",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "id": 105,
+                            "name": "_to",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 91,
+                            "src": "909:3:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          {
+                            "id": 106,
+                            "name": "_amount",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 93,
+                            "src": "914:7:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          {
+                            "id": 107,
+                            "name": "_message",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 95,
+                            "src": "923:8:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "id": 108,
+                            "name": "_nonce",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 97,
+                            "src": "933:6:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          ],
+                          "expression": {
+                            "id": 103,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -1,
+                            "src": "892:3:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 104,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberLocation": "896:12:2",
+                          "memberName": "encodePacked",
+                          "nodeType": "MemberAccess",
+                          "src": "892:16:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 109,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "892:48:2",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 102,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": -8,
+                      "src": "882:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 110,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "882:59:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 101,
+                  "id": 111,
+                  "nodeType": "Return",
+                  "src": "875:66:2"
+                }
+              ]
+            },
+            "functionSelector": "a35f8a40",
+            "id": 113,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getMessageHash",
+            "nameLocation": "718:14:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 98,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 91,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nameLocation": "750:3:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 113,
+                  "src": "742:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 90,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "742:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 93,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "768:7:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 113,
+                  "src": "763:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 92,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "763:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 95,
+                  "mutability": "mutable",
+                  "name": "_message",
+                  "nameLocation": "799:8:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 113,
+                  "src": "785:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 94,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "785:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 97,
+                  "mutability": "mutable",
+                  "name": "_nonce",
+                  "nameLocation": "822:6:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 113,
+                  "src": "817:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 96,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "817:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "732:102:2"
+            },
+            "returnParameters": {
+              "id": 101,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 100,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 113,
+                  "src": "856:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 99,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "856:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "855:9:2"
+            },
+            "scope": 219,
+            "src": "709:239:2",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 129,
+              "nodeType": "Block",
+              "src": "1562:93:2",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "hexValue": "19457468657265756d205369676e6564204d6573736167653a0a3332",
+                            "id": 124,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "string",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1606:34:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_stringliteral_178a2411ab6fbc1ba11064408972259c558d0e82fd48b0aba3ad81d14f065e73",
+                              "typeString": "literal_string hex\"19457468657265756d205369676e6564204d6573736167653a0a3332\""
+                            },
+                            "value": "\u0019Ethereum Signed Message:\n32"
+                          },
+                          {
+                            "id": 125,
+                            "name": "hash",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 116,
+                            "src": "1642:4:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_stringliteral_178a2411ab6fbc1ba11064408972259c558d0e82fd48b0aba3ad81d14f065e73",
+                              "typeString": "literal_string hex\"19457468657265756d205369676e6564204d6573736167653a0a3332\""
+                            },
+                            {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          ],
+                          "expression": {
+                            "id": 122,
+                            "name": "abi",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -1,
+                            "src": "1589:3:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_abi",
+                              "typeString": "abi"
+                            }
+                          },
+                          "id": 123,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberLocation": "1593:12:2",
+                          "memberName": "encodePacked",
+                          "nodeType": "MemberAccess",
+                          "src": "1589:16:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
+                            "typeString": "function () pure returns (bytes memory)"
+                          }
+                        },
+                        "id": 126,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "functionCall",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1589:58:2",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 121,
+                      "name": "keccak256",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": -8,
+                      "src": "1579:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 127,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1579:69:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 120,
+                  "id": 128,
+                  "nodeType": "Return",
+                  "src": "1572:76:2"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 114,
+              "nodeType": "StructuredDocumentation",
+              "src": "1432:61:2",
+              "text": "builds a prefixed hash to mimic the behavior of eth_sign."
+            },
+            "id": 130,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "prefixed",
+            "nameLocation": "1507:8:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 117,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 116,
+                  "mutability": "mutable",
+                  "name": "hash",
+                  "nameLocation": "1524:4:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 130,
+                  "src": "1516:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 115,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1516:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1515:14:2"
+            },
+            "returnParameters": {
+              "id": 120,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 119,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 130,
+                  "src": "1553:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 118,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1553:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1552:9:2"
+            },
+            "scope": 219,
+            "src": "1498:157:2",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 169,
+              "nodeType": "Block",
+              "src": "2235:222:2",
+              "statements": [
+                {
+                  "assignments": [
+                    148
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 148,
+                      "mutability": "mutable",
+                      "name": "messageHash",
+                      "nameLocation": "2253:11:2",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 169,
+                      "src": "2245:19:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 147,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2245:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 155,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 150,
+                        "name": "_to",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 134,
+                        "src": "2282:3:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 151,
+                        "name": "_amount",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 136,
+                        "src": "2287:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 152,
+                        "name": "_message",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 138,
+                        "src": "2296:8:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "id": 153,
+                        "name": "_nonce",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 140,
+                        "src": "2306:6:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 149,
+                      "name": "getMessageHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 113,
+                      "src": "2267:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_address_$_t_uint256_$_t_string_memory_ptr_$_t_uint256_$returns$_t_bytes32_$",
+                        "typeString": "function (address,uint256,string memory,uint256) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 154,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2267:46:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2245:68:2"
+                },
+                {
+                  "assignments": [
+                    157
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 157,
+                      "mutability": "mutable",
+                      "name": "ethSignedMessageHash",
+                      "nameLocation": "2331:20:2",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 169,
+                      "src": "2323:28:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 156,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2323:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 161,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 159,
+                        "name": "messageHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 148,
+                        "src": "2363:11:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      ],
+                      "id": 158,
+                      "name": "prefixed",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 130,
+                      "src": "2354:8:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_bytes32_$returns$_t_bytes32_$",
+                        "typeString": "function (bytes32) pure returns (bytes32)"
+                      }
+                    },
+                    "id": 160,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2354:21:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2323:52:2"
+                },
+                {
+                  "expression": {
+                    "commonType": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    },
+                    "id": 167,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "arguments": [
+                        {
+                          "id": 163,
+                          "name": "ethSignedMessageHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 157,
+                          "src": "2407:20:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          }
+                        },
+                        {
+                          "id": 164,
+                          "name": "signature",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 142,
+                          "src": "2429:9:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          },
+                          {
+                            "typeIdentifier": "t_bytes_memory_ptr",
+                            "typeString": "bytes memory"
+                          }
+                        ],
+                        "id": 162,
+                        "name": "recoverSigner",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 197,
+                        "src": "2393:13:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_internal_pure$_t_bytes32_$_t_bytes_memory_ptr_$returns$_t_address_$",
+                          "typeString": "function (bytes32,bytes memory) pure returns (address)"
+                        }
+                      },
+                      "id": 165,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "2393:46:2",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "==",
+                    "rightExpression": {
+                      "id": 166,
+                      "name": "_signer",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 132,
+                      "src": "2443:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "2393:57:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "functionReturnParameters": 146,
+                  "id": 168,
+                  "nodeType": "Return",
+                  "src": "2386:64:2"
+                }
+              ]
+            },
+            "functionSelector": "abe5026a",
+            "id": 170,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "verify",
+            "nameLocation": "2042:6:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 143,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 132,
+                  "mutability": "mutable",
+                  "name": "_signer",
+                  "nameLocation": "2066:7:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "2058:15:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 131,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2058:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 134,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nameLocation": "2091:3:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "2083:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 133,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2083:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 136,
+                  "mutability": "mutable",
+                  "name": "_amount",
+                  "nameLocation": "2109:7:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "2104:12:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 135,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2104:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 138,
+                  "mutability": "mutable",
+                  "name": "_message",
+                  "nameLocation": "2140:8:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "2126:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 137,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2126:6:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 140,
+                  "mutability": "mutable",
+                  "name": "_nonce",
+                  "nameLocation": "2163:6:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "2158:11:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 139,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2158:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 142,
+                  "mutability": "mutable",
+                  "name": "signature",
+                  "nameLocation": "2192:9:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "2179:22:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 141,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2179:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2048:159:2"
+            },
+            "returnParameters": {
+              "id": 146,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 145,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 170,
+                  "src": "2229:4:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  },
+                  "typeName": {
+                    "id": 144,
+                    "name": "bool",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2229:4:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2228:6:2"
+            },
+            "scope": 219,
+            "src": "2033:424:2",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 196,
+              "nodeType": "Block",
+              "src": "2582:124:2",
+              "statements": [
+                {
+                  "assignments": [
+                    180,
+                    182,
+                    184
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 180,
+                      "mutability": "mutable",
+                      "name": "r",
+                      "nameLocation": "2601:1:2",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 196,
+                      "src": "2593:9:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 179,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2593:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 182,
+                      "mutability": "mutable",
+                      "name": "s",
+                      "nameLocation": "2612:1:2",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 196,
+                      "src": "2604:9:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      },
+                      "typeName": {
+                        "id": 181,
+                        "name": "bytes32",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2604:7:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      "visibility": "internal"
+                    },
+                    {
+                      "constant": false,
+                      "id": 184,
+                      "mutability": "mutable",
+                      "name": "v",
+                      "nameLocation": "2621:1:2",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 196,
+                      "src": "2615:7:2",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint8",
+                        "typeString": "uint8"
+                      },
+                      "typeName": {
+                        "id": 183,
+                        "name": "uint8",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2615:5:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 188,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 186,
+                        "name": "_signature",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 174,
+                        "src": "2641:10:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_memory_ptr",
+                          "typeString": "bytes memory"
+                        }
+                      ],
+                      "id": 185,
+                      "name": "splitSignature",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 218,
+                      "src": "2626:14:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_internal_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$_t_bytes32_$_t_uint8_$",
+                        "typeString": "function (bytes memory) pure returns (bytes32,bytes32,uint8)"
+                      }
+                    },
+                    "id": 187,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2626:26:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$_t_bytes32_$_t_bytes32_$_t_uint8_$",
+                      "typeString": "tuple(bytes32,bytes32,uint8)"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2592:60:2"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 190,
+                        "name": "_prefixed",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 172,
+                        "src": "2680:9:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "id": 191,
+                        "name": "v",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 184,
+                        "src": "2691:1:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        }
+                      },
+                      {
+                        "id": 192,
+                        "name": "r",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 180,
+                        "src": "2694:1:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "id": 193,
+                        "name": "s",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 182,
+                        "src": "2697:1:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_uint8",
+                          "typeString": "uint8"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      ],
+                      "id": 189,
+                      "name": "ecrecover",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": -6,
+                      "src": "2670:9:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_ecrecover_pure$_t_bytes32_$_t_uint8_$_t_bytes32_$_t_bytes32_$returns$_t_address_$",
+                        "typeString": "function (bytes32,uint8,bytes32,bytes32) pure returns (address)"
+                      }
+                    },
+                    "id": 194,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2670:29:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 178,
+                  "id": 195,
+                  "nodeType": "Return",
+                  "src": "2663:36:2"
+                }
+              ]
+            },
+            "functionSelector": "97aba7f9",
+            "id": 197,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "recoverSigner",
+            "nameLocation": "2472:13:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 175,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 172,
+                  "mutability": "mutable",
+                  "name": "_prefixed",
+                  "nameLocation": "2503:9:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 197,
+                  "src": "2495:17:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 171,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2495:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 174,
+                  "mutability": "mutable",
+                  "name": "_signature",
+                  "nameLocation": "2535:10:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 197,
+                  "src": "2522:23:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 173,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2522:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2485:66:2"
+            },
+            "returnParameters": {
+              "id": 178,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 177,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 197,
+                  "src": "2573:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 176,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2573:7:2",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2572:9:2"
+            },
+            "scope": 219,
+            "src": "2463:243:2",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 217,
+              "nodeType": "Block",
+              "src": "2820:693:2",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 212,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "id": 209,
+                            "name": "sig",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 199,
+                            "src": "2838:3:2",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes_memory_ptr",
+                              "typeString": "bytes memory"
+                            }
+                          },
+                          "id": 210,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "2842:6:2",
+                          "memberName": "length",
+                          "nodeType": "MemberAccess",
+                          "src": "2838:10:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "hexValue": "3635",
+                          "id": 211,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "2852:2:2",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_65_by_1",
+                            "typeString": "int_const 65"
+                          },
+                          "value": "65"
+                        },
+                        "src": "2838:16:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "696e76616c6964207369676e6174757265206c656e677468",
+                        "id": 213,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "2856:26:2",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_e0060b83051574ba40ded2ef248b0d17cb210e5fa4f776d436805ab1ebb12b87",
+                          "typeString": "literal_string \"invalid signature length\""
+                        },
+                        "value": "invalid signature length"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_e0060b83051574ba40ded2ef248b0d17cb210e5fa4f776d436805ab1ebb12b87",
+                          "typeString": "literal_string \"invalid signature length\""
+                        }
+                      ],
+                      "id": 208,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "2830:7:2",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 214,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2830:53:2",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 215,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2830:53:2"
+                },
+                {
+                  "AST": {
+                    "nodeType": "YulBlock",
+                    "src": "2903:564:2",
+                    "statements": [
+                      {
+                        "nodeType": "YulAssignment",
+                        "src": "3259:24:2",
+                        "value": {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "name": "sig",
+                                  "nodeType": "YulIdentifier",
+                                  "src": "3274:3:2"
+                                },
+                                {
+                                  "kind": "number",
+                                  "nodeType": "YulLiteral",
+                                  "src": "3279:2:2",
+                                  "type": "",
+                                  "value": "32"
+                                }
+                              ],
+                              "functionName": {
+                                "name": "add",
+                                "nodeType": "YulIdentifier",
+                                "src": "3270:3:2"
+                              },
+                              "nodeType": "YulFunctionCall",
+                              "src": "3270:12:2"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "mload",
+                            "nodeType": "YulIdentifier",
+                            "src": "3264:5:2"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "3264:19:2"
+                        },
+                        "variableNames": [
+                          {
+                            "name": "r",
+                            "nodeType": "YulIdentifier",
+                            "src": "3259:1:2"
+                          }
+                        ]
+                      },
+                      {
+                        "nodeType": "YulAssignment",
+                        "src": "3327:24:2",
+                        "value": {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "name": "sig",
+                                  "nodeType": "YulIdentifier",
+                                  "src": "3342:3:2"
+                                },
+                                {
+                                  "kind": "number",
+                                  "nodeType": "YulLiteral",
+                                  "src": "3347:2:2",
+                                  "type": "",
+                                  "value": "64"
+                                }
+                              ],
+                              "functionName": {
+                                "name": "add",
+                                "nodeType": "YulIdentifier",
+                                "src": "3338:3:2"
+                              },
+                              "nodeType": "YulFunctionCall",
+                              "src": "3338:12:2"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "mload",
+                            "nodeType": "YulIdentifier",
+                            "src": "3332:5:2"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "3332:19:2"
+                        },
+                        "variableNames": [
+                          {
+                            "name": "s",
+                            "nodeType": "YulIdentifier",
+                            "src": "3327:1:2"
+                          }
+                        ]
+                      },
+                      {
+                        "nodeType": "YulAssignment",
+                        "src": "3424:33:2",
+                        "value": {
+                          "arguments": [
+                            {
+                              "kind": "number",
+                              "nodeType": "YulLiteral",
+                              "src": "3434:1:2",
+                              "type": "",
+                              "value": "0"
+                            },
+                            {
+                              "arguments": [
+                                {
+                                  "arguments": [
+                                    {
+                                      "name": "sig",
+                                      "nodeType": "YulIdentifier",
+                                      "src": "3447:3:2"
+                                    },
+                                    {
+                                      "kind": "number",
+                                      "nodeType": "YulLiteral",
+                                      "src": "3452:2:2",
+                                      "type": "",
+                                      "value": "96"
+                                    }
+                                  ],
+                                  "functionName": {
+                                    "name": "add",
+                                    "nodeType": "YulIdentifier",
+                                    "src": "3443:3:2"
+                                  },
+                                  "nodeType": "YulFunctionCall",
+                                  "src": "3443:12:2"
+                                }
+                              ],
+                              "functionName": {
+                                "name": "mload",
+                                "nodeType": "YulIdentifier",
+                                "src": "3437:5:2"
+                              },
+                              "nodeType": "YulFunctionCall",
+                              "src": "3437:19:2"
+                            }
+                          ],
+                          "functionName": {
+                            "name": "byte",
+                            "nodeType": "YulIdentifier",
+                            "src": "3429:4:2"
+                          },
+                          "nodeType": "YulFunctionCall",
+                          "src": "3429:28:2"
+                        },
+                        "variableNames": [
+                          {
+                            "name": "v",
+                            "nodeType": "YulIdentifier",
+                            "src": "3424:1:2"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "evmVersion": "istanbul",
+                  "externalReferences": [
+                    {
+                      "declaration": 202,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "3259:1:2",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 204,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "3327:1:2",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 199,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "3274:3:2",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 199,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "3342:3:2",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 199,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "3447:3:2",
+                      "valueSize": 1
+                    },
+                    {
+                      "declaration": 206,
+                      "isOffset": false,
+                      "isSlot": false,
+                      "src": "3424:1:2",
+                      "valueSize": 1
+                    }
+                  ],
+                  "id": 216,
+                  "nodeType": "InlineAssembly",
+                  "src": "2894:573:2"
+                }
+              ]
+            },
+            "functionSelector": "a7bb5803",
+            "id": 218,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "splitSignature",
+            "nameLocation": "2721:14:2",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 200,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 199,
+                  "mutability": "mutable",
+                  "name": "sig",
+                  "nameLocation": "2758:3:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 218,
+                  "src": "2745:16:2",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 198,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2745:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2735:32:2"
+            },
+            "returnParameters": {
+              "id": 207,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 202,
+                  "mutability": "mutable",
+                  "name": "r",
+                  "nameLocation": "2797:1:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 218,
+                  "src": "2789:9:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 201,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2789:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 204,
+                  "mutability": "mutable",
+                  "name": "s",
+                  "nameLocation": "2808:1:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 218,
+                  "src": "2800:9:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 203,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2800:7:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 206,
+                  "mutability": "mutable",
+                  "name": "v",
+                  "nameLocation": "2817:1:2",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 218,
+                  "src": "2811:7:2",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 205,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2811:5:2",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2788:31:2"
+            },
+            "scope": 219,
+            "src": "2712:801:2",
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 220,
+        "src": "368:3147:2",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:3484:2"
+  },
+  "bytecode": "61058c61003a600b82828239805160001a60731461002d57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106100565760003560e01c806397aba7f91461005b578063a35f8a401461008b578063a7bb5803146100ac578063abe5026a146100dd575b600080fd5b61006e61006936600461036a565b610100565b6040516001600160a01b0390911681526020015b60405180910390f35b61009e6100993660046103cd565b61017f565b604051908152602001610082565b6100bf6100ba36600461042c565b6101b8565b60408051938452602084019290925260ff1690820152606001610082565b6100f06100eb366004610469565b610230565b6040519015158152602001610082565b60008060008061010f856101b8565b6040805160008152602081018083528b905260ff8316918101919091526060810184905260808101839052929550909350915060019060a0016020604051602081039080840390855afa15801561016a573d6000803e3d6000fd5b5050604051601f190151979650505050505050565b6000848484846040516020016101989493929190610500565b604051602081830303815290604052805190602001209050949350505050565b600080600083516041146102125760405162461bcd60e51b815260206004820152601860248201527f696e76616c6964207369676e6174757265206c656e6774680000000000000000604482015260640160405180910390fd5b50505060208101516040820151606090920151909260009190911a90565b60008061023f8787878761017f565b9050600061029a826040517f19457468657265756d205369676e6564204d6573736167653a0a3332000000006020820152603c8101829052600090605c01604051602081830303815290604052805190602001209050919050565b9050886001600160a01b03166102b08286610100565b6001600160a01b0316149998505050505050505050565b634e487b7160e01b600052604160045260246000fd5b600082601f8301126102ee57600080fd5b813567ffffffffffffffff80821115610309576103096102c7565b604051601f8301601f19908116603f01168101908282118183101715610331576103316102c7565b8160405283815286602085880101111561034a57600080fd5b836020870160208301376000602085830101528094505050505092915050565b6000806040838503121561037d57600080fd5b82359150602083013567ffffffffffffffff81111561039b57600080fd5b6103a7858286016102dd565b9150509250929050565b80356001600160a01b03811681146103c857600080fd5b919050565b600080600080608085870312156103e357600080fd5b6103ec856103b1565b935060208501359250604085013567ffffffffffffffff81111561040f57600080fd5b61041b878288016102dd565b949793965093946060013593505050565b60006020828403121561043e57600080fd5b813567ffffffffffffffff81111561045557600080fd5b610461848285016102dd565b949350505050565b60008060008060008060c0878903121561048257600080fd5b61048b876103b1565b9550610499602088016103b1565b945060408701359350606087013567ffffffffffffffff808211156104bd57600080fd5b6104c98a838b016102dd565b94506080890135935060a08901359150808211156104e657600080fd5b506104f389828a016102dd565b9150509295509295509295565b6bffffffffffffffffffffffff198560601b1681528360148201526000835160005b8181101561053f5760208187018101516034868401015201610522565b50603492019182019290925260540194935050505056fea2646970667358221220e6d350d9f78f55b3051b1981f404a4bf4da1ee93d675deb095e31fd1b1604b3b64736f6c63430008110033",
+  "bytecodeSha1": "81dc97dbc7d1fac04a462b3c71bb22a89416ebf3",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.17+commit.8df45f5f"
+  },
+  "contractName": "Signature",
+  "coverageMap": {
+    "branches": {
+      "2": {
+        "Signature.splitSignature": {
+          "5": [
+            2838,
+            2854,
+            true
+          ]
+        }
+      }
+    },
+    "statements": {
+      "2": {
+        "Signature.getMessageHash": {
+          "1": [
+            875,
+            941
+          ]
+        },
+        "Signature.prefixed": {
+          "3": [
+            1572,
+            1648
+          ]
+        },
+        "Signature.recoverSigner": {
+          "0": [
+            2663,
+            2699
+          ]
+        },
+        "Signature.splitSignature": {
+          "2": [
+            2830,
+            2883
+          ]
+        },
+        "Signature.verify": {
+          "4": [
+            2386,
+            2450
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "73000000000000000000000000000000000000000030146080604052600436106100565760003560e01c806397aba7f91461005b578063a35f8a401461008b578063a7bb5803146100ac578063abe5026a146100dd575b600080fd5b61006e61006936600461036a565b610100565b6040516001600160a01b0390911681526020015b60405180910390f35b61009e6100993660046103cd565b61017f565b604051908152602001610082565b6100bf6100ba36600461042c565b6101b8565b60408051938452602084019290925260ff1690820152606001610082565b6100f06100eb366004610469565b610230565b6040519015158152602001610082565b60008060008061010f856101b8565b6040805160008152602081018083528b905260ff8316918101919091526060810184905260808101839052929550909350915060019060a0016020604051602081039080840390855afa15801561016a573d6000803e3d6000fd5b5050604051601f190151979650505050505050565b6000848484846040516020016101989493929190610500565b604051602081830303815290604052805190602001209050949350505050565b600080600083516041146102125760405162461bcd60e51b815260206004820152601860248201527f696e76616c6964207369676e6174757265206c656e6774680000000000000000604482015260640160405180910390fd5b50505060208101516040820151606090920151909260009190911a90565b60008061023f8787878761017f565b9050600061029a826040517f19457468657265756d205369676e6564204d6573736167653a0a3332000000006020820152603c8101829052600090605c01604051602081830303815290604052805190602001209050919050565b9050886001600160a01b03166102b08286610100565b6001600160a01b0316149998505050505050505050565b634e487b7160e01b600052604160045260246000fd5b600082601f8301126102ee57600080fd5b813567ffffffffffffffff80821115610309576103096102c7565b604051601f8301601f19908116603f01168101908282118183101715610331576103316102c7565b8160405283815286602085880101111561034a57600080fd5b836020870160208301376000602085830101528094505050505092915050565b6000806040838503121561037d57600080fd5b82359150602083013567ffffffffffffffff81111561039b57600080fd5b6103a7858286016102dd565b9150509250929050565b80356001600160a01b03811681146103c857600080fd5b919050565b600080600080608085870312156103e357600080fd5b6103ec856103b1565b935060208501359250604085013567ffffffffffffffff81111561040f57600080fd5b61041b878288016102dd565b949793965093946060013593505050565b60006020828403121561043e57600080fd5b813567ffffffffffffffff81111561045557600080fd5b610461848285016102dd565b949350505050565b60008060008060008060c0878903121561048257600080fd5b61048b876103b1565b9550610499602088016103b1565b945060408701359350606087013567ffffffffffffffff808211156104bd57600080fd5b6104c98a838b016102dd565b94506080890135935060a08901359150808211156104e657600080fd5b506104f389828a016102dd565b9150509295509295509295565b6bffffffffffffffffffffffff198560601b1681528360148201526000835160005b8181101561053f5760208187018101516034868401015201610522565b50603492019182019290925260540194935050505056fea2646970667358221220e6d350d9f78f55b3051b1981f404a4bf4da1ee93d675deb095e31fd1b1604b3b64736f6c63430008110033",
+  "deployedSourceMap": "368:3147:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2463:243;;;;;;:::i;:::-;;:::i;:::-;;;-1:-1:-1;;;;;1434:32:4;;;1416:51;;1404:2;1389:18;2463:243:2;;;;;;;;709:239;;;;;;:::i;:::-;;:::i;:::-;;;2347:25:4;;;2335:2;2320:18;709:239:2;2193:185:4;2712:801:2;;;;;;:::i;:::-;;:::i;:::-;;;;2914:25:4;;;2970:2;2955:18;;2948:34;;;;3030:4;3018:17;2998:18;;;2991:45;2902:2;2887:18;2712:801:2;2708:334:4;2033:424:2;;;;;;:::i;:::-;;:::i;:::-;;;4052:14:4;;4045:22;4027:41;;4015:2;4000:18;2033:424:2;3879:195:4;2463:243:2;2573:7;2593:9;2604;2615:7;2626:26;2641:10;2626:14;:26::i;:::-;2670:29;;;;;;;;;;;;4306:25:4;;;4379:4;4367:17;;4347:18;;;4340:45;;;;4401:18;;;4394:34;;;4444:18;;;4437:34;;;2592:60:2;;-1:-1:-1;2592:60:2;;-1:-1:-1;2592:60:2;-1:-1:-1;2670:29:2;;4278:19:4;;2670:29:2;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;2670:29:2;;-1:-1:-1;;2670:29:2;;;2463:243;-1:-1:-1;;;;;;;2463:243:2:o;709:239::-;856:7;909:3;914:7;923:8;933:6;892:48;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;882:59;;;;;;875:66;;709:239;;;;;;:::o;2712:801::-;2789:9;2800;2811:7;2838:3;:10;2852:2;2838:16;2830:53;;;;-1:-1:-1;;;2830:53:2;;5331:2:4;2830:53:2;;;5313:21:4;5370:2;5350:18;;;5343:30;5409:26;5389:18;;;5382:54;5453:18;;2830:53:2;;;;;;;;-1:-1:-1;;;3279:2:2;3270:12;;3264:19;3347:2;3338:12;;3332:19;3452:2;3443:12;;;3437:19;3264;;3434:1;3429:28;;;;;2712:801::o;2033:424::-;2229:4;2245:19;2267:46;2282:3;2287:7;2296:8;2306:6;2267:14;:46::i;:::-;2245:68;;2323:28;2354:21;2363:11;1589:58;;5724:66:4;1589:58:2;;;5712:79:4;5807:12;;;5800:28;;;1553:7:2;;5844:12:4;;1589:58:2;;;;;;;;;;;;1579:69;;;;;;1572:76;;1498:157;;;;2354:21;2323:52;;2443:7;-1:-1:-1;;;;;2393:57:2;:46;2407:20;2429:9;2393:13;:46::i;:::-;-1:-1:-1;;;;;2393:57:2;;;2033:424;-1:-1:-1;;;;;;;;;2033:424:2:o;14:127:4:-;75:10;70:3;66:20;63:1;56:31;106:4;103:1;96:15;130:4;127:1;120:15;146:718;188:5;241:3;234:4;226:6;222:17;218:27;208:55;;259:1;256;249:12;208:55;295:6;282:20;321:18;358:2;354;351:10;348:36;;;364:18;;:::i;:::-;439:2;433:9;407:2;493:13;;-1:-1:-1;;489:22:4;;;513:2;485:31;481:40;469:53;;;537:18;;;557:22;;;534:46;531:72;;;583:18;;:::i;:::-;623:10;619:2;612:22;658:2;650:6;643:18;704:3;697:4;692:2;684:6;680:15;676:26;673:35;670:55;;;721:1;718;711:12;670:55;785:2;778:4;770:6;766:17;759:4;751:6;747:17;734:54;832:1;825:4;820:2;812:6;808:15;804:26;797:37;852:6;843:15;;;;;;146:718;;;;:::o;869:388::-;946:6;954;1007:2;995:9;986:7;982:23;978:32;975:52;;;1023:1;1020;1013:12;975:52;1059:9;1046:23;1036:33;;1120:2;1109:9;1105:18;1092:32;1147:18;1139:6;1136:30;1133:50;;;1179:1;1176;1169:12;1133:50;1202:49;1243:7;1234:6;1223:9;1219:22;1202:49;:::i;:::-;1192:59;;;869:388;;;;;:::o;1478:173::-;1546:20;;-1:-1:-1;;;;;1595:31:4;;1585:42;;1575:70;;1641:1;1638;1631:12;1575:70;1478:173;;;:::o;1656:532::-;1752:6;1760;1768;1776;1829:3;1817:9;1808:7;1804:23;1800:33;1797:53;;;1846:1;1843;1836:12;1797:53;1869:29;1888:9;1869:29;:::i;:::-;1859:39;;1945:2;1934:9;1930:18;1917:32;1907:42;;2000:2;1989:9;1985:18;1972:32;2027:18;2019:6;2016:30;2013:50;;;2059:1;2056;2049:12;2013:50;2082:49;2123:7;2114:6;2103:9;2099:22;2082:49;:::i;:::-;1656:532;;;;-1:-1:-1;2072:59:4;;2178:2;2163:18;2150:32;;-1:-1:-1;;;1656:532:4:o;2383:320::-;2451:6;2504:2;2492:9;2483:7;2479:23;2475:32;2472:52;;;2520:1;2517;2510:12;2472:52;2560:9;2547:23;2593:18;2585:6;2582:30;2579:50;;;2625:1;2622;2615:12;2579:50;2648:49;2689:7;2680:6;2669:9;2665:22;2648:49;:::i;:::-;2638:59;2383:320;-1:-1:-1;;;;2383:320:4:o;3047:827::-;3170:6;3178;3186;3194;3202;3210;3263:3;3251:9;3242:7;3238:23;3234:33;3231:53;;;3280:1;3277;3270:12;3231:53;3303:29;3322:9;3303:29;:::i;:::-;3293:39;;3351:38;3385:2;3374:9;3370:18;3351:38;:::i;:::-;3341:48;;3436:2;3425:9;3421:18;3408:32;3398:42;;3491:2;3480:9;3476:18;3463:32;3514:18;3555:2;3547:6;3544:14;3541:34;;;3571:1;3568;3561:12;3541:34;3594:49;3635:7;3626:6;3615:9;3611:22;3594:49;:::i;:::-;3584:59;;3690:3;3679:9;3675:19;3662:33;3652:43;;3748:3;3737:9;3733:19;3720:33;3704:49;;3778:2;3768:8;3765:16;3762:36;;;3794:1;3791;3784:12;3762:36;;3817:51;3860:7;3849:8;3838:9;3834:24;3817:51;:::i;:::-;3807:61;;;3047:827;;;;;;;;:::o;4482:642::-;4752:26;4748:31;4739:6;4735:2;4731:15;4727:53;4722:3;4715:66;4811:6;4806:2;4801:3;4797:12;4790:28;4697:3;4847:6;4841:13;4872:1;4882:138;4896:6;4893:1;4890:13;4882:138;;;5003:4;4987:14;;;4983:25;;4977:32;4972:2;4959:11;;;4955:20;4948:62;4911:12;4882:138;;;-1:-1:-1;5079:2:4;5039:16;;5071:11;;;5064:27;;;;5115:2;5107:11;;4482:642;-1:-1:-1;;;;4482:642:4:o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    368,
+    3515
+  ],
+  "opcodes": "PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH2 0x56 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x97ABA7F9 EQ PUSH2 0x5B JUMPI DUP1 PUSH4 0xA35F8A40 EQ PUSH2 0x8B JUMPI DUP1 PUSH4 0xA7BB5803 EQ PUSH2 0xAC JUMPI DUP1 PUSH4 0xABE5026A EQ PUSH2 0xDD JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x6E PUSH2 0x69 CALLDATASIZE PUSH1 0x4 PUSH2 0x36A JUMP JUMPDEST PUSH2 0x100 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x9E PUSH2 0x99 CALLDATASIZE PUSH1 0x4 PUSH2 0x3CD JUMP JUMPDEST PUSH2 0x17F JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x82 JUMP JUMPDEST PUSH2 0xBF PUSH2 0xBA CALLDATASIZE PUSH1 0x4 PUSH2 0x42C JUMP JUMPDEST PUSH2 0x1B8 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP4 DUP5 MSTORE PUSH1 0x20 DUP5 ADD SWAP3 SWAP1 SWAP3 MSTORE PUSH1 0xFF AND SWAP1 DUP3 ADD MSTORE PUSH1 0x60 ADD PUSH2 0x82 JUMP JUMPDEST PUSH2 0xF0 PUSH2 0xEB CALLDATASIZE PUSH1 0x4 PUSH2 0x469 JUMP JUMPDEST PUSH2 0x230 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0x82 JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH2 0x10F DUP6 PUSH2 0x1B8 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD PUSH1 0x0 DUP2 MSTORE PUSH1 0x20 DUP2 ADD DUP1 DUP4 MSTORE DUP12 SWAP1 MSTORE PUSH1 0xFF DUP4 AND SWAP2 DUP2 ADD SWAP2 SWAP1 SWAP2 MSTORE PUSH1 0x60 DUP2 ADD DUP5 SWAP1 MSTORE PUSH1 0x80 DUP2 ADD DUP4 SWAP1 MSTORE SWAP3 SWAP6 POP SWAP1 SWAP4 POP SWAP2 POP PUSH1 0x1 SWAP1 PUSH1 0xA0 ADD PUSH1 0x20 PUSH1 0x40 MLOAD PUSH1 0x20 DUP2 SUB SWAP1 DUP1 DUP5 SUB SWAP1 DUP6 GAS STATICCALL ISZERO DUP1 ISZERO PUSH2 0x16A JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP PUSH1 0x40 MLOAD PUSH1 0x1F NOT ADD MLOAD SWAP8 SWAP7 POP POP POP POP POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP5 DUP5 DUP5 DUP5 PUSH1 0x40 MLOAD PUSH1 0x20 ADD PUSH2 0x198 SWAP5 SWAP4 SWAP3 SWAP2 SWAP1 PUSH2 0x500 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x20 DUP2 DUP4 SUB SUB DUP2 MSTORE SWAP1 PUSH1 0x40 MSTORE DUP1 MLOAD SWAP1 PUSH1 0x20 ADD KECCAK256 SWAP1 POP SWAP5 SWAP4 POP POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 DUP4 MLOAD PUSH1 0x41 EQ PUSH2 0x212 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x18 PUSH1 0x24 DUP3 ADD MSTORE PUSH32 0x696E76616C6964207369676E6174757265206C656E6774680000000000000000 PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x64 ADD PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 REVERT JUMPDEST POP POP POP PUSH1 0x20 DUP2 ADD MLOAD PUSH1 0x40 DUP3 ADD MLOAD PUSH1 0x60 SWAP1 SWAP3 ADD MLOAD SWAP1 SWAP3 PUSH1 0x0 SWAP2 SWAP1 SWAP2 BYTE SWAP1 JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH2 0x23F DUP8 DUP8 DUP8 DUP8 PUSH2 0x17F JUMP JUMPDEST SWAP1 POP PUSH1 0x0 PUSH2 0x29A DUP3 PUSH1 0x40 MLOAD PUSH32 0x19457468657265756D205369676E6564204D6573736167653A0A333200000000 PUSH1 0x20 DUP3 ADD MSTORE PUSH1 0x3C DUP2 ADD DUP3 SWAP1 MSTORE PUSH1 0x0 SWAP1 PUSH1 0x5C ADD PUSH1 0x40 MLOAD PUSH1 0x20 DUP2 DUP4 SUB SUB DUP2 MSTORE SWAP1 PUSH1 0x40 MSTORE DUP1 MLOAD SWAP1 PUSH1 0x20 ADD KECCAK256 SWAP1 POP SWAP2 SWAP1 POP JUMP JUMPDEST SWAP1 POP DUP9 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH2 0x2B0 DUP3 DUP7 PUSH2 0x100 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND EQ SWAP10 SWAP9 POP POP POP POP POP POP POP POP POP JUMP JUMPDEST PUSH4 0x4E487B71 PUSH1 0xE0 SHL PUSH1 0x0 MSTORE PUSH1 0x41 PUSH1 0x4 MSTORE PUSH1 0x24 PUSH1 0x0 REVERT JUMPDEST PUSH1 0x0 DUP3 PUSH1 0x1F DUP4 ADD SLT PUSH2 0x2EE JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 CALLDATALOAD PUSH8 0xFFFFFFFFFFFFFFFF DUP1 DUP3 GT ISZERO PUSH2 0x309 JUMPI PUSH2 0x309 PUSH2 0x2C7 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1F DUP4 ADD PUSH1 0x1F NOT SWAP1 DUP2 AND PUSH1 0x3F ADD AND DUP2 ADD SWAP1 DUP3 DUP3 GT DUP2 DUP4 LT OR ISZERO PUSH2 0x331 JUMPI PUSH2 0x331 PUSH2 0x2C7 JUMP JUMPDEST DUP2 PUSH1 0x40 MSTORE DUP4 DUP2 MSTORE DUP7 PUSH1 0x20 DUP6 DUP9 ADD ADD GT ISZERO PUSH2 0x34A JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP4 PUSH1 0x20 DUP8 ADD PUSH1 0x20 DUP4 ADD CALLDATACOPY PUSH1 0x0 PUSH1 0x20 DUP6 DUP4 ADD ADD MSTORE DUP1 SWAP5 POP POP POP POP POP SWAP3 SWAP2 POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x40 DUP4 DUP6 SUB SLT ISZERO PUSH2 0x37D JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP3 CALLDATALOAD SWAP2 POP PUSH1 0x20 DUP4 ADD CALLDATALOAD PUSH8 0xFFFFFFFFFFFFFFFF DUP2 GT ISZERO PUSH2 0x39B JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x3A7 DUP6 DUP3 DUP7 ADD PUSH2 0x2DD JUMP JUMPDEST SWAP2 POP POP SWAP3 POP SWAP3 SWAP1 POP JUMP JUMPDEST DUP1 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x3C8 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP2 SWAP1 POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH1 0x80 DUP6 DUP8 SUB SLT ISZERO PUSH2 0x3E3 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x3EC DUP6 PUSH2 0x3B1 JUMP JUMPDEST SWAP4 POP PUSH1 0x20 DUP6 ADD CALLDATALOAD SWAP3 POP PUSH1 0x40 DUP6 ADD CALLDATALOAD PUSH8 0xFFFFFFFFFFFFFFFF DUP2 GT ISZERO PUSH2 0x40F JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x41B DUP8 DUP3 DUP9 ADD PUSH2 0x2DD JUMP JUMPDEST SWAP5 SWAP8 SWAP4 SWAP7 POP SWAP4 SWAP5 PUSH1 0x60 ADD CALLDATALOAD SWAP4 POP POP POP JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x43E JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 CALLDATALOAD PUSH8 0xFFFFFFFFFFFFFFFF DUP2 GT ISZERO PUSH2 0x455 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x461 DUP5 DUP3 DUP6 ADD PUSH2 0x2DD JUMP JUMPDEST SWAP5 SWAP4 POP POP POP POP JUMP JUMPDEST PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH1 0x0 DUP1 PUSH1 0xC0 DUP8 DUP10 SUB SLT ISZERO PUSH2 0x482 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x48B DUP8 PUSH2 0x3B1 JUMP JUMPDEST SWAP6 POP PUSH2 0x499 PUSH1 0x20 DUP9 ADD PUSH2 0x3B1 JUMP JUMPDEST SWAP5 POP PUSH1 0x40 DUP8 ADD CALLDATALOAD SWAP4 POP PUSH1 0x60 DUP8 ADD CALLDATALOAD PUSH8 0xFFFFFFFFFFFFFFFF DUP1 DUP3 GT ISZERO PUSH2 0x4BD JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x4C9 DUP11 DUP4 DUP12 ADD PUSH2 0x2DD JUMP JUMPDEST SWAP5 POP PUSH1 0x80 DUP10 ADD CALLDATALOAD SWAP4 POP PUSH1 0xA0 DUP10 ADD CALLDATALOAD SWAP2 POP DUP1 DUP3 GT ISZERO PUSH2 0x4E6 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH2 0x4F3 DUP10 DUP3 DUP11 ADD PUSH2 0x2DD JUMP JUMPDEST SWAP2 POP POP SWAP3 SWAP6 POP SWAP3 SWAP6 POP SWAP3 SWAP6 JUMP JUMPDEST PUSH12 0xFFFFFFFFFFFFFFFFFFFFFFFF NOT DUP6 PUSH1 0x60 SHL AND DUP2 MSTORE DUP4 PUSH1 0x14 DUP3 ADD MSTORE PUSH1 0x0 DUP4 MLOAD PUSH1 0x0 JUMPDEST DUP2 DUP2 LT ISZERO PUSH2 0x53F JUMPI PUSH1 0x20 DUP2 DUP8 ADD DUP2 ADD MLOAD PUSH1 0x34 DUP7 DUP5 ADD ADD MSTORE ADD PUSH2 0x522 JUMP JUMPDEST POP PUSH1 0x34 SWAP3 ADD SWAP2 DUP3 ADD SWAP3 SWAP1 SWAP3 MSTORE PUSH1 0x54 ADD SWAP5 SWAP4 POP POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xE6 0xD3 POP 0xD9 0xF7 DUP16 SSTORE 0xB3 SDIV SHL NOT DUP2 DELEGATECALL DIV LOG4 0xBF 0x4D LOG1 0xEE SWAP4 0xD6 PUSH22 0xDEB095E31FD1B1604B3B64736F6C6343000811003300 ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH20",
+      "path": "2",
+      "value": "0x0"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "ADDRESS",
+      "path": "2"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "23": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x80"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "27": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "30": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "LT",
+      "path": "2"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x56"
+    },
+    "35": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "36": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "CALLDATALOAD",
+      "path": "2"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0xE0"
+    },
+    "41": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "SHR",
+      "path": "2"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0x97ABA7F9"
+    },
+    "48": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x5B"
+    },
+    "52": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "54": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0xA35F8A40"
+    },
+    "59": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "60": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x8B"
+    },
+    "63": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "64": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "65": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0xA7BB5803"
+    },
+    "70": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "71": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xAC"
+    },
+    "74": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "75": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "76": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH4",
+      "path": "2",
+      "value": "0xABE5026A"
+    },
+    "81": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "82": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xDD"
+    },
+    "85": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "86": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "87": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "89": {
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "90": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        368,
+        3515
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "91": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "92": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x6E"
+    },
+    "95": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x69"
+    },
+    "98": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "99": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "101": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x36A"
+    },
+    "104": {
+      "fn": "Signature.recoverSigner",
+      "jump": "i",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "105": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "106": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x100"
+    },
+    "109": {
+      "fn": "Signature.recoverSigner",
+      "jump": "i",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "110": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "111": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "113": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "114": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "116": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "118": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "120": {
+      "op": "SHL"
+    },
+    "121": {
+      "op": "SUB"
+    },
+    "122": {
+      "op": "SWAP1"
+    },
+    "123": {
+      "op": "SWAP2"
+    },
+    "124": {
+      "op": "AND"
+    },
+    "125": {
+      "op": "DUP2"
+    },
+    "126": {
+      "op": "MSTORE"
+    },
+    "127": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "129": {
+      "op": "ADD"
+    },
+    "130": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "131": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "133": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "134": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "135": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "136": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "137": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "138": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "RETURN",
+      "path": "2"
+    },
+    "139": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "140": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x9E"
+    },
+    "143": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x99"
+    },
+    "146": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "147": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "149": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x3CD"
+    },
+    "152": {
+      "fn": "Signature.getMessageHash",
+      "jump": "i",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "153": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "154": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x17F"
+    },
+    "157": {
+      "fn": "Signature.getMessageHash",
+      "jump": "i",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "158": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "159": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "161": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "162": {
+      "op": "SWAP1"
+    },
+    "163": {
+      "op": "DUP2"
+    },
+    "164": {
+      "op": "MSTORE"
+    },
+    "165": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "167": {
+      "op": "ADD"
+    },
+    "168": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x82"
+    },
+    "171": {
+      "op": "JUMP"
+    },
+    "172": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "173": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xBF"
+    },
+    "176": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xBA"
+    },
+    "179": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "180": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "182": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x42C"
+    },
+    "185": {
+      "fn": "Signature.splitSignature",
+      "jump": "i",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "186": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "187": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1B8"
+    },
+    "190": {
+      "fn": "Signature.splitSignature",
+      "jump": "i",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "191": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "192": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "194": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "195": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "196": {
+      "op": "SWAP4"
+    },
+    "197": {
+      "op": "DUP5"
+    },
+    "198": {
+      "op": "MSTORE"
+    },
+    "199": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "201": {
+      "op": "DUP5"
+    },
+    "202": {
+      "op": "ADD"
+    },
+    "203": {
+      "op": "SWAP3"
+    },
+    "204": {
+      "op": "SWAP1"
+    },
+    "205": {
+      "op": "SWAP3"
+    },
+    "206": {
+      "op": "MSTORE"
+    },
+    "207": {
+      "op": "PUSH1",
+      "value": "0xFF"
+    },
+    "209": {
+      "op": "AND"
+    },
+    "210": {
+      "op": "SWAP1"
+    },
+    "211": {
+      "op": "DUP3"
+    },
+    "212": {
+      "op": "ADD"
+    },
+    "213": {
+      "op": "MSTORE"
+    },
+    "214": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "216": {
+      "op": "ADD"
+    },
+    "217": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x82"
+    },
+    "220": {
+      "op": "JUMP"
+    },
+    "221": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "222": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xF0"
+    },
+    "225": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0xEB"
+    },
+    "228": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "CALLDATASIZE",
+      "path": "2"
+    },
+    "229": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "231": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x469"
+    },
+    "234": {
+      "fn": "Signature.verify",
+      "jump": "i",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "235": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "236": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x230"
+    },
+    "239": {
+      "fn": "Signature.verify",
+      "jump": "i",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "240": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "241": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "243": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "244": {
+      "op": "SWAP1"
+    },
+    "245": {
+      "op": "ISZERO"
+    },
+    "246": {
+      "op": "ISZERO"
+    },
+    "247": {
+      "op": "DUP2"
+    },
+    "248": {
+      "op": "MSTORE"
+    },
+    "249": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "251": {
+      "op": "ADD"
+    },
+    "252": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x82"
+    },
+    "255": {
+      "op": "JUMP"
+    },
+    "256": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "257": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2573,
+        2580
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "259": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2593,
+        2602
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "260": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2604,
+        2613
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "262": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2615,
+        2622
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "263": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2626,
+        2652
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x10F"
+    },
+    "266": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2641,
+        2651
+      ],
+      "op": "DUP6",
+      "path": "2"
+    },
+    "267": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2626,
+        2640
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x1B8"
+    },
+    "270": {
+      "fn": "Signature.recoverSigner",
+      "jump": "i",
+      "offset": [
+        2626,
+        2652
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "271": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2626,
+        2652
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "272": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "statement": 0,
+      "value": "0x40"
+    },
+    "274": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "275": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "276": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "278": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "279": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "280": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "282": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "283": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "284": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "285": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "286": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "287": {
+      "op": "DUP12"
+    },
+    "288": {
+      "op": "SWAP1"
+    },
+    "289": {
+      "op": "MSTORE"
+    },
+    "290": {
+      "op": "PUSH1",
+      "value": "0xFF"
+    },
+    "292": {
+      "op": "DUP4"
+    },
+    "293": {
+      "op": "AND"
+    },
+    "294": {
+      "op": "SWAP2"
+    },
+    "295": {
+      "op": "DUP2"
+    },
+    "296": {
+      "op": "ADD"
+    },
+    "297": {
+      "op": "SWAP2"
+    },
+    "298": {
+      "op": "SWAP1"
+    },
+    "299": {
+      "op": "SWAP2"
+    },
+    "300": {
+      "op": "MSTORE"
+    },
+    "301": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "303": {
+      "op": "DUP2"
+    },
+    "304": {
+      "op": "ADD"
+    },
+    "305": {
+      "op": "DUP5"
+    },
+    "306": {
+      "op": "SWAP1"
+    },
+    "307": {
+      "op": "MSTORE"
+    },
+    "308": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "310": {
+      "op": "DUP2"
+    },
+    "311": {
+      "op": "ADD"
+    },
+    "312": {
+      "op": "DUP4"
+    },
+    "313": {
+      "op": "SWAP1"
+    },
+    "314": {
+      "op": "MSTORE"
+    },
+    "315": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2592,
+        2652
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "316": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2592,
+        2652
+      ],
+      "op": "SWAP6",
+      "path": "2"
+    },
+    "317": {
+      "op": "POP"
+    },
+    "318": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2592,
+        2652
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "319": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2592,
+        2652
+      ],
+      "op": "SWAP4",
+      "path": "2"
+    },
+    "320": {
+      "op": "POP"
+    },
+    "321": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2592,
+        2652
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "322": {
+      "op": "POP"
+    },
+    "323": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x1"
+    },
+    "325": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "326": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "328": {
+      "op": "ADD"
+    },
+    "329": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "331": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "333": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "334": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "336": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "337": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "338": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "339": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "340": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "341": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "342": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "343": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP6",
+      "path": "2"
+    },
+    "344": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "GAS",
+      "path": "2"
+    },
+    "345": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "STATICCALL",
+      "path": "2"
+    },
+    "346": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "347": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "348": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "ISZERO",
+      "path": "2"
+    },
+    "349": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x16A"
+    },
+    "352": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "353": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "354": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "356": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "357": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "RETURNDATACOPY",
+      "path": "2"
+    },
+    "358": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "RETURNDATASIZE",
+      "path": "2"
+    },
+    "359": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "361": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "REVERT",
+      "path": "2"
+    },
+    "362": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "363": {
+      "op": "POP"
+    },
+    "364": {
+      "op": "POP"
+    },
+    "365": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "367": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "368": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "370": {
+      "op": "NOT"
+    },
+    "371": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "372": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "373": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2670,
+        2699
+      ],
+      "op": "SWAP8",
+      "path": "2"
+    },
+    "374": {
+      "fn": "Signature.recoverSigner",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "SWAP7",
+      "path": "2"
+    },
+    "375": {
+      "op": "POP"
+    },
+    "376": {
+      "op": "POP"
+    },
+    "377": {
+      "op": "POP"
+    },
+    "378": {
+      "op": "POP"
+    },
+    "379": {
+      "op": "POP"
+    },
+    "380": {
+      "op": "POP"
+    },
+    "381": {
+      "op": "POP"
+    },
+    "382": {
+      "fn": "Signature.recoverSigner",
+      "jump": "o",
+      "offset": [
+        2463,
+        2706
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "383": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "384": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        856,
+        863
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "386": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        909,
+        912
+      ],
+      "op": "DUP5",
+      "path": "2",
+      "statement": 1
+    },
+    "387": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        914,
+        921
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "388": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        923,
+        931
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "389": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        933,
+        939
+      ],
+      "op": "DUP5",
+      "path": "2"
+    },
+    "390": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "392": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "393": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "395": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "396": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x198"
+    },
+    "399": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "SWAP5",
+      "path": "2"
+    },
+    "400": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "SWAP4",
+      "path": "2"
+    },
+    "401": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "402": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "403": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "404": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x500"
+    },
+    "407": {
+      "fn": "Signature.getMessageHash",
+      "jump": "i",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "408": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "409": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "411": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "412": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "414": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "415": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "416": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "417": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "418": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "419": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "420": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "421": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "423": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        892,
+        940
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "424": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        882,
+        941
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "425": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        882,
+        941
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "426": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        882,
+        941
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "427": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        882,
+        941
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "429": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        882,
+        941
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "430": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        882,
+        941
+      ],
+      "op": "KECCAK256",
+      "path": "2"
+    },
+    "431": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        875,
+        941
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "432": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        875,
+        941
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "433": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "SWAP5",
+      "path": "2"
+    },
+    "434": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "SWAP4",
+      "path": "2"
+    },
+    "435": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "436": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "437": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "438": {
+      "fn": "Signature.getMessageHash",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "439": {
+      "fn": "Signature.getMessageHash",
+      "jump": "o",
+      "offset": [
+        709,
+        948
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "440": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "441": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2789,
+        2798
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "443": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2800,
+        2809
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "444": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2811,
+        2818
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "446": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2838,
+        2841
+      ],
+      "op": "DUP4",
+      "path": "2",
+      "statement": 2
+    },
+    "447": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2838,
+        2848
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "448": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2852,
+        2854
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x41"
+    },
+    "450": {
+      "branch": 5,
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2838,
+        2854
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "451": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x212"
+    },
+    "454": {
+      "branch": 5,
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "JUMPI",
+      "path": "2"
+    },
+    "455": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "457": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "458": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "462": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "464": {
+      "op": "SHL"
+    },
+    "465": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "466": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "467": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "469": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x4"
+    },
+    "471": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "472": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "473": {
+      "op": "MSTORE"
+    },
+    "474": {
+      "op": "PUSH1",
+      "value": "0x18"
+    },
+    "476": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "478": {
+      "op": "DUP3"
+    },
+    "479": {
+      "op": "ADD"
+    },
+    "480": {
+      "op": "MSTORE"
+    },
+    "481": {
+      "op": "PUSH32",
+      "value": "0x696E76616C6964207369676E6174757265206C656E6774680000000000000000"
+    },
+    "514": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "516": {
+      "op": "DUP3"
+    },
+    "517": {
+      "op": "ADD"
+    },
+    "518": {
+      "op": "MSTORE"
+    },
+    "519": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "521": {
+      "op": "ADD"
+    },
+    "522": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "524": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "525": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "526": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "527": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "528": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "529": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "REVERT",
+      "optimizer_revert": true,
+      "path": "2"
+    },
+    "530": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        2830,
+        2883
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "531": {
+      "op": "POP"
+    },
+    "532": {
+      "op": "POP"
+    },
+    "533": {
+      "op": "POP"
+    },
+    "534": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3279,
+        3281
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "536": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3270,
+        3282
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "537": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3270,
+        3282
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "538": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3264,
+        3283
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "539": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3347,
+        3349
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "541": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3338,
+        3350
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "542": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3338,
+        3350
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "543": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3332,
+        3351
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "544": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3452,
+        3454
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x60"
+    },
+    "546": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3443,
+        3455
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "547": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3443,
+        3455
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "548": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3443,
+        3455
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "549": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3437,
+        3456
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "550": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3264,
+        3283
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "551": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3264,
+        3283
+      ],
+      "op": "SWAP3",
+      "path": "2"
+    },
+    "552": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3434,
+        3435
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "554": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3429,
+        3457
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "555": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3429,
+        3457
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "556": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3429,
+        3457
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "557": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3429,
+        3457
+      ],
+      "op": "BYTE",
+      "path": "2"
+    },
+    "558": {
+      "fn": "Signature.splitSignature",
+      "offset": [
+        3429,
+        3457
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "559": {
+      "fn": "Signature.splitSignature",
+      "jump": "o",
+      "offset": [
+        2712,
+        3513
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "560": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "561": {
+      "fn": "Signature.verify",
+      "offset": [
+        2229,
+        2233
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "563": {
+      "fn": "Signature.verify",
+      "offset": [
+        2245,
+        2264
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "564": {
+      "fn": "Signature.verify",
+      "offset": [
+        2267,
+        2313
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x23F"
+    },
+    "567": {
+      "fn": "Signature.verify",
+      "offset": [
+        2282,
+        2285
+      ],
+      "op": "DUP8",
+      "path": "2"
+    },
+    "568": {
+      "fn": "Signature.verify",
+      "offset": [
+        2287,
+        2294
+      ],
+      "op": "DUP8",
+      "path": "2"
+    },
+    "569": {
+      "fn": "Signature.verify",
+      "offset": [
+        2296,
+        2304
+      ],
+      "op": "DUP8",
+      "path": "2"
+    },
+    "570": {
+      "fn": "Signature.verify",
+      "offset": [
+        2306,
+        2312
+      ],
+      "op": "DUP8",
+      "path": "2"
+    },
+    "571": {
+      "fn": "Signature.verify",
+      "offset": [
+        2267,
+        2281
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x17F"
+    },
+    "574": {
+      "fn": "Signature.verify",
+      "jump": "i",
+      "offset": [
+        2267,
+        2313
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "575": {
+      "fn": "Signature.verify",
+      "offset": [
+        2267,
+        2313
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "576": {
+      "fn": "Signature.verify",
+      "offset": [
+        2245,
+        2313
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "577": {
+      "fn": "Signature.verify",
+      "offset": [
+        2245,
+        2313
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "578": {
+      "fn": "Signature.verify",
+      "offset": [
+        2323,
+        2351
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "580": {
+      "fn": "Signature.verify",
+      "offset": [
+        2354,
+        2375
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x29A"
+    },
+    "583": {
+      "fn": "Signature.verify",
+      "offset": [
+        2363,
+        2374
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "584": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "statement": 3,
+      "value": "0x40"
+    },
+    "586": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "587": {
+      "op": "PUSH32",
+      "value": "0x19457468657265756D205369676E6564204D6573736167653A0A333200000000"
+    },
+    "620": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "622": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "623": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "624": {
+      "op": "MSTORE"
+    },
+    "625": {
+      "op": "PUSH1",
+      "value": "0x3C"
+    },
+    "627": {
+      "op": "DUP2"
+    },
+    "628": {
+      "op": "ADD"
+    },
+    "629": {
+      "op": "DUP3"
+    },
+    "630": {
+      "op": "SWAP1"
+    },
+    "631": {
+      "op": "MSTORE"
+    },
+    "632": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1553,
+        1560
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x0"
+    },
+    "634": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1553,
+        1560
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "635": {
+      "op": "PUSH1",
+      "value": "0x5C"
+    },
+    "637": {
+      "op": "ADD"
+    },
+    "638": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "640": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "641": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "643": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "644": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "DUP4",
+      "path": "2"
+    },
+    "645": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "646": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "SUB",
+      "path": "2"
+    },
+    "647": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "DUP2",
+      "path": "2"
+    },
+    "648": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "649": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "650": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x40"
+    },
+    "652": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1589,
+        1647
+      ],
+      "op": "MSTORE",
+      "path": "2"
+    },
+    "653": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1579,
+        1648
+      ],
+      "op": "DUP1",
+      "path": "2"
+    },
+    "654": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1579,
+        1648
+      ],
+      "op": "MLOAD",
+      "path": "2"
+    },
+    "655": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1579,
+        1648
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "656": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1579,
+        1648
+      ],
+      "op": "PUSH1",
+      "path": "2",
+      "value": "0x20"
+    },
+    "658": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1579,
+        1648
+      ],
+      "op": "ADD",
+      "path": "2"
+    },
+    "659": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1579,
+        1648
+      ],
+      "op": "KECCAK256",
+      "path": "2"
+    },
+    "660": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1572,
+        1648
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "661": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1572,
+        1648
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "662": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1498,
+        1655
+      ],
+      "op": "SWAP2",
+      "path": "2"
+    },
+    "663": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1498,
+        1655
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "664": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1498,
+        1655
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "665": {
+      "fn": "Signature.prefixed",
+      "offset": [
+        1498,
+        1655
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "666": {
+      "fn": "Signature.verify",
+      "offset": [
+        2354,
+        2375
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "667": {
+      "fn": "Signature.verify",
+      "offset": [
+        2323,
+        2375
+      ],
+      "op": "SWAP1",
+      "path": "2"
+    },
+    "668": {
+      "fn": "Signature.verify",
+      "offset": [
+        2323,
+        2375
+      ],
+      "op": "POP",
+      "path": "2"
+    },
+    "669": {
+      "fn": "Signature.verify",
+      "offset": [
+        2443,
+        2450
+      ],
+      "op": "DUP9",
+      "path": "2",
+      "statement": 4
+    },
+    "670": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "672": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "674": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "676": {
+      "op": "SHL"
+    },
+    "677": {
+      "op": "SUB"
+    },
+    "678": {
+      "fn": "Signature.verify",
+      "offset": [
+        2393,
+        2450
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "679": {
+      "fn": "Signature.verify",
+      "offset": [
+        2393,
+        2439
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x2B0"
+    },
+    "682": {
+      "fn": "Signature.verify",
+      "offset": [
+        2407,
+        2427
+      ],
+      "op": "DUP3",
+      "path": "2"
+    },
+    "683": {
+      "fn": "Signature.verify",
+      "offset": [
+        2429,
+        2438
+      ],
+      "op": "DUP7",
+      "path": "2"
+    },
+    "684": {
+      "fn": "Signature.verify",
+      "offset": [
+        2393,
+        2406
+      ],
+      "op": "PUSH2",
+      "path": "2",
+      "value": "0x100"
+    },
+    "687": {
+      "fn": "Signature.verify",
+      "jump": "i",
+      "offset": [
+        2393,
+        2439
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "688": {
+      "fn": "Signature.verify",
+      "offset": [
+        2393,
+        2439
+      ],
+      "op": "JUMPDEST",
+      "path": "2"
+    },
+    "689": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "691": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "693": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "695": {
+      "op": "SHL"
+    },
+    "696": {
+      "op": "SUB"
+    },
+    "697": {
+      "fn": "Signature.verify",
+      "offset": [
+        2393,
+        2450
+      ],
+      "op": "AND",
+      "path": "2"
+    },
+    "698": {
+      "fn": "Signature.verify",
+      "offset": [
+        2393,
+        2450
+      ],
+      "op": "EQ",
+      "path": "2"
+    },
+    "699": {
+      "fn": "Signature.verify",
+      "offset": [
+        2393,
+        2450
+      ],
+      "op": "SWAP10",
+      "path": "2"
+    },
+    "700": {
+      "fn": "Signature.verify",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "SWAP9",
+      "path": "2"
+    },
+    "701": {
+      "op": "POP"
+    },
+    "702": {
+      "op": "POP"
+    },
+    "703": {
+      "op": "POP"
+    },
+    "704": {
+      "op": "POP"
+    },
+    "705": {
+      "op": "POP"
+    },
+    "706": {
+      "op": "POP"
+    },
+    "707": {
+      "op": "POP"
+    },
+    "708": {
+      "op": "POP"
+    },
+    "709": {
+      "op": "POP"
+    },
+    "710": {
+      "fn": "Signature.verify",
+      "jump": "o",
+      "offset": [
+        2033,
+        2457
+      ],
+      "op": "JUMP",
+      "path": "2"
+    },
+    "711": {
+      "op": "JUMPDEST"
+    },
+    "712": {
+      "op": "PUSH4",
+      "value": "0x4E487B71"
+    },
+    "717": {
+      "op": "PUSH1",
+      "value": "0xE0"
+    },
+    "719": {
+      "op": "SHL"
+    },
+    "720": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "722": {
+      "op": "MSTORE"
+    },
+    "723": {
+      "op": "PUSH1",
+      "value": "0x41"
+    },
+    "725": {
+      "op": "PUSH1",
+      "value": "0x4"
+    },
+    "727": {
+      "op": "MSTORE"
+    },
+    "728": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "730": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "732": {
+      "op": "REVERT"
+    },
+    "733": {
+      "op": "JUMPDEST"
+    },
+    "734": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "736": {
+      "op": "DUP3"
+    },
+    "737": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "739": {
+      "op": "DUP4"
+    },
+    "740": {
+      "op": "ADD"
+    },
+    "741": {
+      "op": "SLT"
+    },
+    "742": {
+      "op": "PUSH2",
+      "value": "0x2EE"
+    },
+    "745": {
+      "op": "JUMPI"
+    },
+    "746": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "748": {
+      "op": "DUP1"
+    },
+    "749": {
+      "op": "REVERT"
+    },
+    "750": {
+      "op": "JUMPDEST"
+    },
+    "751": {
+      "op": "DUP2"
+    },
+    "752": {
+      "op": "CALLDATALOAD"
+    },
+    "753": {
+      "op": "PUSH8",
+      "value": "0xFFFFFFFFFFFFFFFF"
+    },
+    "762": {
+      "op": "DUP1"
+    },
+    "763": {
+      "op": "DUP3"
+    },
+    "764": {
+      "op": "GT"
+    },
+    "765": {
+      "op": "ISZERO"
+    },
+    "766": {
+      "op": "PUSH2",
+      "value": "0x309"
+    },
+    "769": {
+      "op": "JUMPI"
+    },
+    "770": {
+      "op": "PUSH2",
+      "value": "0x309"
+    },
+    "773": {
+      "op": "PUSH2",
+      "value": "0x2C7"
+    },
+    "776": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "777": {
+      "op": "JUMPDEST"
+    },
+    "778": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "780": {
+      "op": "MLOAD"
+    },
+    "781": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "783": {
+      "op": "DUP4"
+    },
+    "784": {
+      "op": "ADD"
+    },
+    "785": {
+      "op": "PUSH1",
+      "value": "0x1F"
+    },
+    "787": {
+      "op": "NOT"
+    },
+    "788": {
+      "op": "SWAP1"
+    },
+    "789": {
+      "op": "DUP2"
+    },
+    "790": {
+      "op": "AND"
+    },
+    "791": {
+      "op": "PUSH1",
+      "value": "0x3F"
+    },
+    "793": {
+      "op": "ADD"
+    },
+    "794": {
+      "op": "AND"
+    },
+    "795": {
+      "op": "DUP2"
+    },
+    "796": {
+      "op": "ADD"
+    },
+    "797": {
+      "op": "SWAP1"
+    },
+    "798": {
+      "op": "DUP3"
+    },
+    "799": {
+      "op": "DUP3"
+    },
+    "800": {
+      "op": "GT"
+    },
+    "801": {
+      "op": "DUP2"
+    },
+    "802": {
+      "op": "DUP4"
+    },
+    "803": {
+      "op": "LT"
+    },
+    "804": {
+      "op": "OR"
+    },
+    "805": {
+      "op": "ISZERO"
+    },
+    "806": {
+      "op": "PUSH2",
+      "value": "0x331"
+    },
+    "809": {
+      "op": "JUMPI"
+    },
+    "810": {
+      "op": "PUSH2",
+      "value": "0x331"
+    },
+    "813": {
+      "op": "PUSH2",
+      "value": "0x2C7"
+    },
+    "816": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "817": {
+      "op": "JUMPDEST"
+    },
+    "818": {
+      "op": "DUP2"
+    },
+    "819": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "821": {
+      "op": "MSTORE"
+    },
+    "822": {
+      "op": "DUP4"
+    },
+    "823": {
+      "op": "DUP2"
+    },
+    "824": {
+      "op": "MSTORE"
+    },
+    "825": {
+      "op": "DUP7"
+    },
+    "826": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "828": {
+      "op": "DUP6"
+    },
+    "829": {
+      "op": "DUP9"
+    },
+    "830": {
+      "op": "ADD"
+    },
+    "831": {
+      "op": "ADD"
+    },
+    "832": {
+      "op": "GT"
+    },
+    "833": {
+      "op": "ISZERO"
+    },
+    "834": {
+      "op": "PUSH2",
+      "value": "0x34A"
+    },
+    "837": {
+      "op": "JUMPI"
+    },
+    "838": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "840": {
+      "op": "DUP1"
+    },
+    "841": {
+      "op": "REVERT"
+    },
+    "842": {
+      "op": "JUMPDEST"
+    },
+    "843": {
+      "op": "DUP4"
+    },
+    "844": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "846": {
+      "op": "DUP8"
+    },
+    "847": {
+      "op": "ADD"
+    },
+    "848": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "850": {
+      "op": "DUP4"
+    },
+    "851": {
+      "op": "ADD"
+    },
+    "852": {
+      "op": "CALLDATACOPY"
+    },
+    "853": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "855": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "857": {
+      "op": "DUP6"
+    },
+    "858": {
+      "op": "DUP4"
+    },
+    "859": {
+      "op": "ADD"
+    },
+    "860": {
+      "op": "ADD"
+    },
+    "861": {
+      "op": "MSTORE"
+    },
+    "862": {
+      "op": "DUP1"
+    },
+    "863": {
+      "op": "SWAP5"
+    },
+    "864": {
+      "op": "POP"
+    },
+    "865": {
+      "op": "POP"
+    },
+    "866": {
+      "op": "POP"
+    },
+    "867": {
+      "op": "POP"
+    },
+    "868": {
+      "op": "POP"
+    },
+    "869": {
+      "op": "SWAP3"
+    },
+    "870": {
+      "op": "SWAP2"
+    },
+    "871": {
+      "op": "POP"
+    },
+    "872": {
+      "op": "POP"
+    },
+    "873": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "874": {
+      "op": "JUMPDEST"
+    },
+    "875": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "877": {
+      "op": "DUP1"
+    },
+    "878": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "880": {
+      "op": "DUP4"
+    },
+    "881": {
+      "op": "DUP6"
+    },
+    "882": {
+      "op": "SUB"
+    },
+    "883": {
+      "op": "SLT"
+    },
+    "884": {
+      "op": "ISZERO"
+    },
+    "885": {
+      "op": "PUSH2",
+      "value": "0x37D"
+    },
+    "888": {
+      "op": "JUMPI"
+    },
+    "889": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "891": {
+      "op": "DUP1"
+    },
+    "892": {
+      "op": "REVERT"
+    },
+    "893": {
+      "op": "JUMPDEST"
+    },
+    "894": {
+      "op": "DUP3"
+    },
+    "895": {
+      "op": "CALLDATALOAD"
+    },
+    "896": {
+      "op": "SWAP2"
+    },
+    "897": {
+      "op": "POP"
+    },
+    "898": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "900": {
+      "op": "DUP4"
+    },
+    "901": {
+      "op": "ADD"
+    },
+    "902": {
+      "op": "CALLDATALOAD"
+    },
+    "903": {
+      "op": "PUSH8",
+      "value": "0xFFFFFFFFFFFFFFFF"
+    },
+    "912": {
+      "op": "DUP2"
+    },
+    "913": {
+      "op": "GT"
+    },
+    "914": {
+      "op": "ISZERO"
+    },
+    "915": {
+      "op": "PUSH2",
+      "value": "0x39B"
+    },
+    "918": {
+      "op": "JUMPI"
+    },
+    "919": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "921": {
+      "op": "DUP1"
+    },
+    "922": {
+      "op": "REVERT"
+    },
+    "923": {
+      "op": "JUMPDEST"
+    },
+    "924": {
+      "op": "PUSH2",
+      "value": "0x3A7"
+    },
+    "927": {
+      "op": "DUP6"
+    },
+    "928": {
+      "op": "DUP3"
+    },
+    "929": {
+      "op": "DUP7"
+    },
+    "930": {
+      "op": "ADD"
+    },
+    "931": {
+      "op": "PUSH2",
+      "value": "0x2DD"
+    },
+    "934": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "935": {
+      "op": "JUMPDEST"
+    },
+    "936": {
+      "op": "SWAP2"
+    },
+    "937": {
+      "op": "POP"
+    },
+    "938": {
+      "op": "POP"
+    },
+    "939": {
+      "op": "SWAP3"
+    },
+    "940": {
+      "op": "POP"
+    },
+    "941": {
+      "op": "SWAP3"
+    },
+    "942": {
+      "op": "SWAP1"
+    },
+    "943": {
+      "op": "POP"
+    },
+    "944": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "945": {
+      "op": "JUMPDEST"
+    },
+    "946": {
+      "op": "DUP1"
+    },
+    "947": {
+      "op": "CALLDATALOAD"
+    },
+    "948": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "950": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "952": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "954": {
+      "op": "SHL"
+    },
+    "955": {
+      "op": "SUB"
+    },
+    "956": {
+      "op": "DUP2"
+    },
+    "957": {
+      "op": "AND"
+    },
+    "958": {
+      "op": "DUP2"
+    },
+    "959": {
+      "op": "EQ"
+    },
+    "960": {
+      "op": "PUSH2",
+      "value": "0x3C8"
+    },
+    "963": {
+      "op": "JUMPI"
+    },
+    "964": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "966": {
+      "op": "DUP1"
+    },
+    "967": {
+      "op": "REVERT"
+    },
+    "968": {
+      "op": "JUMPDEST"
+    },
+    "969": {
+      "op": "SWAP2"
+    },
+    "970": {
+      "op": "SWAP1"
+    },
+    "971": {
+      "op": "POP"
+    },
+    "972": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "973": {
+      "op": "JUMPDEST"
+    },
+    "974": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "976": {
+      "op": "DUP1"
+    },
+    "977": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "979": {
+      "op": "DUP1"
+    },
+    "980": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "982": {
+      "op": "DUP6"
+    },
+    "983": {
+      "op": "DUP8"
+    },
+    "984": {
+      "op": "SUB"
+    },
+    "985": {
+      "op": "SLT"
+    },
+    "986": {
+      "op": "ISZERO"
+    },
+    "987": {
+      "op": "PUSH2",
+      "value": "0x3E3"
+    },
+    "990": {
+      "op": "JUMPI"
+    },
+    "991": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "993": {
+      "op": "DUP1"
+    },
+    "994": {
+      "op": "REVERT"
+    },
+    "995": {
+      "op": "JUMPDEST"
+    },
+    "996": {
+      "op": "PUSH2",
+      "value": "0x3EC"
+    },
+    "999": {
+      "op": "DUP6"
+    },
+    "1000": {
+      "op": "PUSH2",
+      "value": "0x3B1"
+    },
+    "1003": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1004": {
+      "op": "JUMPDEST"
+    },
+    "1005": {
+      "op": "SWAP4"
+    },
+    "1006": {
+      "op": "POP"
+    },
+    "1007": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1009": {
+      "op": "DUP6"
+    },
+    "1010": {
+      "op": "ADD"
+    },
+    "1011": {
+      "op": "CALLDATALOAD"
+    },
+    "1012": {
+      "op": "SWAP3"
+    },
+    "1013": {
+      "op": "POP"
+    },
+    "1014": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1016": {
+      "op": "DUP6"
+    },
+    "1017": {
+      "op": "ADD"
+    },
+    "1018": {
+      "op": "CALLDATALOAD"
+    },
+    "1019": {
+      "op": "PUSH8",
+      "value": "0xFFFFFFFFFFFFFFFF"
+    },
+    "1028": {
+      "op": "DUP2"
+    },
+    "1029": {
+      "op": "GT"
+    },
+    "1030": {
+      "op": "ISZERO"
+    },
+    "1031": {
+      "op": "PUSH2",
+      "value": "0x40F"
+    },
+    "1034": {
+      "op": "JUMPI"
+    },
+    "1035": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1037": {
+      "op": "DUP1"
+    },
+    "1038": {
+      "op": "REVERT"
+    },
+    "1039": {
+      "op": "JUMPDEST"
+    },
+    "1040": {
+      "op": "PUSH2",
+      "value": "0x41B"
+    },
+    "1043": {
+      "op": "DUP8"
+    },
+    "1044": {
+      "op": "DUP3"
+    },
+    "1045": {
+      "op": "DUP9"
+    },
+    "1046": {
+      "op": "ADD"
+    },
+    "1047": {
+      "op": "PUSH2",
+      "value": "0x2DD"
+    },
+    "1050": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1051": {
+      "op": "JUMPDEST"
+    },
+    "1052": {
+      "op": "SWAP5"
+    },
+    "1053": {
+      "op": "SWAP8"
+    },
+    "1054": {
+      "op": "SWAP4"
+    },
+    "1055": {
+      "op": "SWAP7"
+    },
+    "1056": {
+      "op": "POP"
+    },
+    "1057": {
+      "op": "SWAP4"
+    },
+    "1058": {
+      "op": "SWAP5"
+    },
+    "1059": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1061": {
+      "op": "ADD"
+    },
+    "1062": {
+      "op": "CALLDATALOAD"
+    },
+    "1063": {
+      "op": "SWAP4"
+    },
+    "1064": {
+      "op": "POP"
+    },
+    "1065": {
+      "op": "POP"
+    },
+    "1066": {
+      "op": "POP"
+    },
+    "1067": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "1068": {
+      "op": "JUMPDEST"
+    },
+    "1069": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1071": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1073": {
+      "op": "DUP3"
+    },
+    "1074": {
+      "op": "DUP5"
+    },
+    "1075": {
+      "op": "SUB"
+    },
+    "1076": {
+      "op": "SLT"
+    },
+    "1077": {
+      "op": "ISZERO"
+    },
+    "1078": {
+      "op": "PUSH2",
+      "value": "0x43E"
+    },
+    "1081": {
+      "op": "JUMPI"
+    },
+    "1082": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1084": {
+      "op": "DUP1"
+    },
+    "1085": {
+      "op": "REVERT"
+    },
+    "1086": {
+      "op": "JUMPDEST"
+    },
+    "1087": {
+      "op": "DUP2"
+    },
+    "1088": {
+      "op": "CALLDATALOAD"
+    },
+    "1089": {
+      "op": "PUSH8",
+      "value": "0xFFFFFFFFFFFFFFFF"
+    },
+    "1098": {
+      "op": "DUP2"
+    },
+    "1099": {
+      "op": "GT"
+    },
+    "1100": {
+      "op": "ISZERO"
+    },
+    "1101": {
+      "op": "PUSH2",
+      "value": "0x455"
+    },
+    "1104": {
+      "op": "JUMPI"
+    },
+    "1105": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1107": {
+      "op": "DUP1"
+    },
+    "1108": {
+      "op": "REVERT"
+    },
+    "1109": {
+      "op": "JUMPDEST"
+    },
+    "1110": {
+      "op": "PUSH2",
+      "value": "0x461"
+    },
+    "1113": {
+      "op": "DUP5"
+    },
+    "1114": {
+      "op": "DUP3"
+    },
+    "1115": {
+      "op": "DUP6"
+    },
+    "1116": {
+      "op": "ADD"
+    },
+    "1117": {
+      "op": "PUSH2",
+      "value": "0x2DD"
+    },
+    "1120": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1121": {
+      "op": "JUMPDEST"
+    },
+    "1122": {
+      "op": "SWAP5"
+    },
+    "1123": {
+      "op": "SWAP4"
+    },
+    "1124": {
+      "op": "POP"
+    },
+    "1125": {
+      "op": "POP"
+    },
+    "1126": {
+      "op": "POP"
+    },
+    "1127": {
+      "op": "POP"
+    },
+    "1128": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "1129": {
+      "op": "JUMPDEST"
+    },
+    "1130": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1132": {
+      "op": "DUP1"
+    },
+    "1133": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1135": {
+      "op": "DUP1"
+    },
+    "1136": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1138": {
+      "op": "DUP1"
+    },
+    "1139": {
+      "op": "PUSH1",
+      "value": "0xC0"
+    },
+    "1141": {
+      "op": "DUP8"
+    },
+    "1142": {
+      "op": "DUP10"
+    },
+    "1143": {
+      "op": "SUB"
+    },
+    "1144": {
+      "op": "SLT"
+    },
+    "1145": {
+      "op": "ISZERO"
+    },
+    "1146": {
+      "op": "PUSH2",
+      "value": "0x482"
+    },
+    "1149": {
+      "op": "JUMPI"
+    },
+    "1150": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1152": {
+      "op": "DUP1"
+    },
+    "1153": {
+      "op": "REVERT"
+    },
+    "1154": {
+      "op": "JUMPDEST"
+    },
+    "1155": {
+      "op": "PUSH2",
+      "value": "0x48B"
+    },
+    "1158": {
+      "op": "DUP8"
+    },
+    "1159": {
+      "op": "PUSH2",
+      "value": "0x3B1"
+    },
+    "1162": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1163": {
+      "op": "JUMPDEST"
+    },
+    "1164": {
+      "op": "SWAP6"
+    },
+    "1165": {
+      "op": "POP"
+    },
+    "1166": {
+      "op": "PUSH2",
+      "value": "0x499"
+    },
+    "1169": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1171": {
+      "op": "DUP9"
+    },
+    "1172": {
+      "op": "ADD"
+    },
+    "1173": {
+      "op": "PUSH2",
+      "value": "0x3B1"
+    },
+    "1176": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1177": {
+      "op": "JUMPDEST"
+    },
+    "1178": {
+      "op": "SWAP5"
+    },
+    "1179": {
+      "op": "POP"
+    },
+    "1180": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "1182": {
+      "op": "DUP8"
+    },
+    "1183": {
+      "op": "ADD"
+    },
+    "1184": {
+      "op": "CALLDATALOAD"
+    },
+    "1185": {
+      "op": "SWAP4"
+    },
+    "1186": {
+      "op": "POP"
+    },
+    "1187": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1189": {
+      "op": "DUP8"
+    },
+    "1190": {
+      "op": "ADD"
+    },
+    "1191": {
+      "op": "CALLDATALOAD"
+    },
+    "1192": {
+      "op": "PUSH8",
+      "value": "0xFFFFFFFFFFFFFFFF"
+    },
+    "1201": {
+      "op": "DUP1"
+    },
+    "1202": {
+      "op": "DUP3"
+    },
+    "1203": {
+      "op": "GT"
+    },
+    "1204": {
+      "op": "ISZERO"
+    },
+    "1205": {
+      "op": "PUSH2",
+      "value": "0x4BD"
+    },
+    "1208": {
+      "op": "JUMPI"
+    },
+    "1209": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1211": {
+      "op": "DUP1"
+    },
+    "1212": {
+      "op": "REVERT"
+    },
+    "1213": {
+      "op": "JUMPDEST"
+    },
+    "1214": {
+      "op": "PUSH2",
+      "value": "0x4C9"
+    },
+    "1217": {
+      "op": "DUP11"
+    },
+    "1218": {
+      "op": "DUP4"
+    },
+    "1219": {
+      "op": "DUP12"
+    },
+    "1220": {
+      "op": "ADD"
+    },
+    "1221": {
+      "op": "PUSH2",
+      "value": "0x2DD"
+    },
+    "1224": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1225": {
+      "op": "JUMPDEST"
+    },
+    "1226": {
+      "op": "SWAP5"
+    },
+    "1227": {
+      "op": "POP"
+    },
+    "1228": {
+      "op": "PUSH1",
+      "value": "0x80"
+    },
+    "1230": {
+      "op": "DUP10"
+    },
+    "1231": {
+      "op": "ADD"
+    },
+    "1232": {
+      "op": "CALLDATALOAD"
+    },
+    "1233": {
+      "op": "SWAP4"
+    },
+    "1234": {
+      "op": "POP"
+    },
+    "1235": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "1237": {
+      "op": "DUP10"
+    },
+    "1238": {
+      "op": "ADD"
+    },
+    "1239": {
+      "op": "CALLDATALOAD"
+    },
+    "1240": {
+      "op": "SWAP2"
+    },
+    "1241": {
+      "op": "POP"
+    },
+    "1242": {
+      "op": "DUP1"
+    },
+    "1243": {
+      "op": "DUP3"
+    },
+    "1244": {
+      "op": "GT"
+    },
+    "1245": {
+      "op": "ISZERO"
+    },
+    "1246": {
+      "op": "PUSH2",
+      "value": "0x4E6"
+    },
+    "1249": {
+      "op": "JUMPI"
+    },
+    "1250": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1252": {
+      "op": "DUP1"
+    },
+    "1253": {
+      "op": "REVERT"
+    },
+    "1254": {
+      "op": "JUMPDEST"
+    },
+    "1255": {
+      "op": "POP"
+    },
+    "1256": {
+      "op": "PUSH2",
+      "value": "0x4F3"
+    },
+    "1259": {
+      "op": "DUP10"
+    },
+    "1260": {
+      "op": "DUP3"
+    },
+    "1261": {
+      "op": "DUP11"
+    },
+    "1262": {
+      "op": "ADD"
+    },
+    "1263": {
+      "op": "PUSH2",
+      "value": "0x2DD"
+    },
+    "1266": {
+      "jump": "i",
+      "op": "JUMP"
+    },
+    "1267": {
+      "op": "JUMPDEST"
+    },
+    "1268": {
+      "op": "SWAP2"
+    },
+    "1269": {
+      "op": "POP"
+    },
+    "1270": {
+      "op": "POP"
+    },
+    "1271": {
+      "op": "SWAP3"
+    },
+    "1272": {
+      "op": "SWAP6"
+    },
+    "1273": {
+      "op": "POP"
+    },
+    "1274": {
+      "op": "SWAP3"
+    },
+    "1275": {
+      "op": "SWAP6"
+    },
+    "1276": {
+      "op": "POP"
+    },
+    "1277": {
+      "op": "SWAP3"
+    },
+    "1278": {
+      "op": "SWAP6"
+    },
+    "1279": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "1280": {
+      "op": "JUMPDEST"
+    },
+    "1281": {
+      "op": "PUSH12",
+      "value": "0xFFFFFFFFFFFFFFFFFFFFFFFF"
+    },
+    "1294": {
+      "op": "NOT"
+    },
+    "1295": {
+      "op": "DUP6"
+    },
+    "1296": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "1298": {
+      "op": "SHL"
+    },
+    "1299": {
+      "op": "AND"
+    },
+    "1300": {
+      "op": "DUP2"
+    },
+    "1301": {
+      "op": "MSTORE"
+    },
+    "1302": {
+      "op": "DUP4"
+    },
+    "1303": {
+      "op": "PUSH1",
+      "value": "0x14"
+    },
+    "1305": {
+      "op": "DUP3"
+    },
+    "1306": {
+      "op": "ADD"
+    },
+    "1307": {
+      "op": "MSTORE"
+    },
+    "1308": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1310": {
+      "op": "DUP4"
+    },
+    "1311": {
+      "op": "MLOAD"
+    },
+    "1312": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "1314": {
+      "op": "JUMPDEST"
+    },
+    "1315": {
+      "op": "DUP2"
+    },
+    "1316": {
+      "op": "DUP2"
+    },
+    "1317": {
+      "op": "LT"
+    },
+    "1318": {
+      "op": "ISZERO"
+    },
+    "1319": {
+      "op": "PUSH2",
+      "value": "0x53F"
+    },
+    "1322": {
+      "op": "JUMPI"
+    },
+    "1323": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "1325": {
+      "op": "DUP2"
+    },
+    "1326": {
+      "op": "DUP8"
+    },
+    "1327": {
+      "op": "ADD"
+    },
+    "1328": {
+      "op": "DUP2"
+    },
+    "1329": {
+      "op": "ADD"
+    },
+    "1330": {
+      "op": "MLOAD"
+    },
+    "1331": {
+      "op": "PUSH1",
+      "value": "0x34"
+    },
+    "1333": {
+      "op": "DUP7"
+    },
+    "1334": {
+      "op": "DUP5"
+    },
+    "1335": {
+      "op": "ADD"
+    },
+    "1336": {
+      "op": "ADD"
+    },
+    "1337": {
+      "op": "MSTORE"
+    },
+    "1338": {
+      "op": "ADD"
+    },
+    "1339": {
+      "op": "PUSH2",
+      "value": "0x522"
+    },
+    "1342": {
+      "op": "JUMP"
+    },
+    "1343": {
+      "op": "JUMPDEST"
+    },
+    "1344": {
+      "op": "POP"
+    },
+    "1345": {
+      "op": "PUSH1",
+      "value": "0x34"
+    },
+    "1347": {
+      "op": "SWAP3"
+    },
+    "1348": {
+      "op": "ADD"
+    },
+    "1349": {
+      "op": "SWAP2"
+    },
+    "1350": {
+      "op": "DUP3"
+    },
+    "1351": {
+      "op": "ADD"
+    },
+    "1352": {
+      "op": "SWAP3"
+    },
+    "1353": {
+      "op": "SWAP1"
+    },
+    "1354": {
+      "op": "SWAP3"
+    },
+    "1355": {
+      "op": "MSTORE"
+    },
+    "1356": {
+      "op": "PUSH1",
+      "value": "0x54"
+    },
+    "1358": {
+      "op": "ADD"
+    },
+    "1359": {
+      "op": "SWAP5"
+    },
+    "1360": {
+      "op": "SWAP4"
+    },
+    "1361": {
+      "op": "POP"
+    },
+    "1362": {
+      "op": "POP"
+    },
+    "1363": {
+      "op": "POP"
+    },
+    "1364": {
+      "op": "POP"
+    },
+    "1365": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "93d031ea2ee4ca54aa08a7bdad931c52c5d90e98",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.17;\n\n/* Signature Verification\n\nHow to Sign and Verify\n# Signing\n1. Create message to sign\n2. Hash the message\n3. Sign the hash (off chain, keep your private key secret)\n\n# Verify\n1. Recreate hash from the original message\n2. Recover signer from signature and hash\n3. Compare recovered signer to claimed signer\n*/\n\nlibrary Signature {\n    /* 1. Unlock MetaMask account\n    ethereum.enable()\n    */\n\n    /* 2. Get message hash to sign\n    getMessageHash(\n        0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C,\n        123,\n        \"coffee and donuts\",\n        1\n    )\n\n    hash = \"0xcf36ac4f97dc10d91fc2cbb20d718e94a8cbfe0f82eaedc6a4aa38946fb797cd\"\n    */\n    function getMessageHash(\n        address _to,\n        uint _amount,\n        string memory _message,\n        uint _nonce\n    ) public pure returns (bytes32) {\n        return keccak256(abi.encodePacked(_to, _amount, _message, _nonce));\n    }\n\n    /* 3. Sign message hash\n    # using browser\n    account = \"copy paste account of signer here\"\n    ethereum.request({ method: \"personal_sign\", params: [account, hash]}).then(console.log)\n\n    # using web3\n    web3.personal.sign(hash, web3.eth.defaultAccount, console.log)\n\n    Signature will be different for different accounts\n    0x993dab3dd91f5c6dc28e17439be475478f5635c92a56e17e82349d3fb2f166196f466c0b4e0c146f285204f0dcb13e5ae67bc33f4b888ec32dfe0a063e8f3f781b\n    */\n\n\n\n    /// builds a prefixed hash to mimic the behavior of eth_sign.\n    function prefixed(bytes32 hash) internal pure returns (bytes32) {\n        return keccak256(abi.encodePacked(\"\\x19Ethereum Signed Message:\\n32\", hash));\n    }\n\n\n\n\n\n\n\n\n\n    /* 4. Verify signature\n    signer = 0xB273216C05A8c0D4F0a4Dd0d7Bae1D2EfFE636dd\n    to = 0x14723A09ACff6D2A60DcdF7aA4AFf308FDDC160C\n    amount = 123\n    message = \"coffee and donuts\"\n    nonce = 1\n    signature =\n        0x993dab3dd91f5c6dc28e17439be475478f5635c92a56e17e82349d3fb2f166196f466c0b4e0c146f285204f0dcb13e5ae67bc33f4b888ec32dfe0a063e8f3f781b\n    */\n    function verify(\n        address _signer,\n        address _to,\n        uint _amount,\n        string memory _message,\n        uint _nonce,\n        bytes memory signature\n    ) public pure returns (bool) {\n        bytes32 messageHash = getMessageHash(_to, _amount, _message, _nonce);\n        bytes32 ethSignedMessageHash = prefixed(messageHash);\n\n        return recoverSigner(ethSignedMessageHash, signature) == _signer;\n    }\n\n    function recoverSigner(\n        bytes32 _prefixed,\n        bytes memory _signature\n    ) public pure returns (address) {\n        (bytes32 r, bytes32 s, uint8 v) = splitSignature(_signature);\n\n        return ecrecover(_prefixed, v, r, s);\n    }\n\n    function splitSignature(\n        bytes memory sig\n    ) public pure returns (bytes32 r, bytes32 s, uint8 v) {\n        require(sig.length == 65, \"invalid signature length\");\n\n        assembly {\n            /*\n            First 32 bytes stores the length of the signature\n\n            add(sig, 32) = pointer of sig + 32\n            effectively, skips first 32 bytes of signature\n\n            mload(p) loads next 32 bytes starting at the memory address p into memory\n            */\n\n            // first 32 bytes, after the length prefix\n            r := mload(add(sig, 32))\n            // second 32 bytes\n            s := mload(add(sig, 64))\n            // final byte (first byte of the next 32 bytes)\n            v := byte(0, mload(add(sig, 96)))\n        }\n\n        // implicitly return (r, s, v)\n    }\n}\n",
+  "sourceMap": "368:3147:2:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;368:3147:2;;;;;;;;;;;;;;;;;",
+  "sourcePath": "contracts/Signature.sol",
+  "type": "library"
+}
